@@ -1,6 +1,7 @@
 // Basic
 html {
   font: $normal 100% $base-typeface;
+  background: $black;
 }
 
 body {
@@ -58,13 +59,13 @@ p, ul, ol, dl {
 
 // Links
 a {
-  color: $blue;
+  color: $ted-red;
   text-decoration: none;
   &:hover, &:focus {
     text-decoration: underline;
   }
   &:active {
-    color: lighten($blue, 20%);
+    color: lighten($ted-red, 20%);
   }
 }
 
@@ -75,14 +76,19 @@ a {
     padding-left: 0;
   }
   a {
-    background: $grey-2;
+    background: $black;
     border-bottom: 1px solid $white;
     color: white;
     display: block;
     padding: em($baseline / 2);
     text-decoration: none;
     &:hover {
-      background: $blue;
+      background: $ted-red;
     }
   }
+}
+
+[role="contentinfo"] {
+  background: $black;
+  color: $grey-d;
 }
