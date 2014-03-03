@@ -3,24 +3,36 @@
   @include box-sizing(border-box);
 }
 
+.clearfix {
+  @include clearfix;
+}
+
 // Grid Container
 .container {
   @include container;
+  @include clearfix;
   @include grid-padding;
   min-width: 10em;
   max-width: 40em;
 }
 
-// Grids
-.grid {
-  @include grid;
-}
-
 // Grid Units
 .unit {
   @include unit;
+  @include width-full;
 }
 
 .unit-right {
   @include unit(right);
+}
+
+.grid-unit {
+  @include grid-padding;
+}
+
+// Multi-column Styles
+@media only screen and (min-width: 40em) {
+  .grid {
+    @include grid;
+  }
 }
