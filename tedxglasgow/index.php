@@ -19,14 +19,14 @@
 <main>
   <header class="page-header">
     <div class="container">
-      <h2>Blog</h2> 
+      <h1>Blog</h1> 
     </div>
   </header>
   <div class="wrapper container">
   <ol class="article-list">
   <?php while ( have_posts() ) : the_post(); ?>
   	<li>
-  		<article>
+  		<article class="blog-post blog-preview">
   			<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><h2 class="article-heading"><?php the_title(); ?></h2></a>
         <div class="content">
     			<?php the_content(); ?>

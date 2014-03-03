@@ -12,13 +12,13 @@
 <?php Reflex_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 <main>
   <header class="page-header">
-    <div class="wrapper container">
-      <h2>Blog</h2> 
+    <div class="container">
+      <h1>Blog</h1> 
     </div>
   </header>
-  <div class="container">
+  <div class="wrapper container">
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-  <article>
+  <article class="blog-post">
     <a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><h2 class="article-heading"><?php the_title(); ?></h2></a>
     <div class="content">
       <?php the_content(); ?>

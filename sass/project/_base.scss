@@ -20,11 +20,13 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
   font-size: em($h1-size);
   margin-bottom: em($baseline / 2, $h1-size);
+  font-weight: $normal;
 }
 
 h2 {
   font-size: em($h2-size);
   margin-bottom: em($baseline / 2, $h2-size);
+  font-weight: $normal;
 }
 
 h3 {
@@ -56,6 +58,19 @@ p, ul, ol, dl {
   margin-bottom: em($baseline);
 }
 
+blockquote {
+  @include clearfix;
+  font-size: em($h4-size);
+  color: $black;
+  border-left: 6px solid $ted-red;
+  background: #f9f9f9;
+  margin: 0 0 em($baseline) 0; 
+  padding: em($baseline*0.5) em($baseline*0.75);
+  *:last-of-type {
+    margin: 0;
+  }
+}
+
 // Links
 a {
   color: $ted-red;
@@ -80,24 +95,38 @@ a {
 }
 
 // Navigation
-#menu {
+#primary-navigation {
+  margin-left: em($baseline*-0.5);
+  margin-right: em($baseline*-0.5);
   ul {
     list-style: none;
     padding-left: 0;
+    margin: 0;
   }
   a {
     background: $black;
     border-bottom: 1px solid $white;
     color: white;
     display: block;
-    padding: em($baseline / 2);
+    padding: em($baseline*0.5);
     text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+      background: $ted-red;
+    }
   }
 }
 
 // -- HEADER --
 [role="banner"] {
-  padding: em($baseline*0.5) 0;
+  padding-top: em($baseline*0.5);
+}
+
+#brand {
+  margin-bottom: em($baseline*0.5);
+  @include clearfix;
+  display: block;
 }
 
 // -- MAIN --
@@ -107,9 +136,6 @@ a {
   padding: em($baseline) 0;
   background: $grey-e;
   color: $black;
-  h1,h2,h3,h4 {
-    font-weight: $normal;
-  }
 }
 
 // -- FOOTER --
@@ -139,6 +165,7 @@ a {
 .article-list {
   padding-left: 0;
   list-style: none;
+  margin: 0;
 }
 
 .article-byline {
