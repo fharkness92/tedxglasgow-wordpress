@@ -1,6 +1,6 @@
 // Basic
 html {
-  font: $normal 100% $base-typeface;
+  font: $light 100% $base-typeface;
   background: $black;
 }
 
@@ -8,14 +8,13 @@ body {
   background: $white;
   font-size: em($body-size);
   line-height: em($baseline);
-  color: $grey-4;
+  color: $grey-5;
 }
 
 // Typography
 h1,h2,h3,h4,h5,h6 {
   margin-top: 0;
   line-height: 1em;
-  color: $grey-2;
 }
 
 h1 {
@@ -62,10 +61,21 @@ a {
   color: $ted-red;
   text-decoration: none;
   &:hover, &:focus {
-    text-decoration: underline;
+    text-decoration: none;
+    color: darken($ted-red, 10%);
   }
   &:active {
-    color: lighten($ted-red, 20%);
+    color: $ted-red;
+  }
+}
+
+.content {
+  a:focus {
+    background: $ted-red;
+    color: $white;
+    padding: em($baseline*0.25);
+    border-radius: 4px;
+    outline: 0;
   }
 }
 
@@ -82,13 +92,55 @@ a {
     display: block;
     padding: em($baseline / 2);
     text-decoration: none;
-    &:hover {
-      background: $ted-red;
-    }
   }
 }
 
+// -- HEADER --
+[role="banner"] {
+  padding: em($baseline*0.5) 0;
+}
+
+// -- MAIN --
+.page-header {
+  border-top: 1px solid $grey-c;
+  border-bottom: 1px solid $grey-c;
+  padding: em($baseline) 0;
+  background: $grey-e;
+  color: $black;
+  h1,h2,h3,h4 {
+    font-weight: $normal;
+  }
+}
+
+// -- FOOTER --
 [role="contentinfo"] {
+  padding-top: em($baseline);
   background: $black;
   color: $grey-d;
+}
+
+// -- WRAPPERS --
+.wrapper {
+  padding-top: em($baseline);
+}
+
+// -- BLOG --
+.article-heading {
+  color: $black;
+  &:hover,
+  &:focus {
+    color: $ted-red;
+  }
+  &:active {
+    color: lighten($ted-red, 10%);
+  }
+}
+
+.article-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.article-byline {
+  color: $grey-9;
 }
