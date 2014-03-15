@@ -17,24 +17,26 @@
 
 <?php if ( have_posts() ): ?>
 <main>
-  <header class="page-header">
+  <header id="page-header">
     <div class="container">
       <h1>Blog</h1> 
     </div>
   </header>
-  <div class="wrapper container">
+  <section id="content" class="wrapper container">
   <ol class="article-list">
   <?php while ( have_posts() ) : the_post(); ?>
   	<li>
-  		<article class="blog-post blog-preview">
+  		<article class="grid blog-post blog-preview">
+        <div class="sidebar">
   			<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><h2 class="article-heading"><?php the_title(); ?></h2></a>
-        <div class="content">
-    			<?php the_content(); ?>
+          <p class="article-byline">By <?php the_author(); ?>, <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time></p>
         </div>
-        <footer class="article-footer">
-          <p class="article-byline">Written by <?php the_author(); ?>. Posted on <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time></p>
-          <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-        </footer>
+        <div class="primary content">
+    			<?php the_excerpt(); ?>
+          <footer class="article-footer">
+            <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
+          </footer>
+        </div>
   		</article>
   	</li>
   <?php endwhile; ?>
@@ -42,7 +44,7 @@
   <?php else: ?>
   <h2>No posts to display</h2>
   <?php endif; ?>
-  </div>
+  </section>
 </main>
 
 <?php Reflex_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>

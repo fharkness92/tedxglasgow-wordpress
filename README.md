@@ -1,5 +1,4 @@
 # [TEDxGlasgow](https://tedxglasgow.com)
-
 Bespoke WordPress theme for TEDxGlasgow
 Developed by @craigmorrison at @madebrave
 

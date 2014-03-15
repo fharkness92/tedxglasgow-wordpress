@@ -58,6 +58,15 @@ p, ul, ol, dl {
   margin-bottom: em($baseline);
 }
 
+ul, ol {
+  padding-left: 1.3em;
+}
+
+// Media
+img {
+  max-width: em(260);
+}
+
 blockquote {
   @include clearfix;
   font-size: em($h4-size);
@@ -94,6 +103,49 @@ a {
   }
 }
 
+// Forms
+input,
+textarea {
+  border: em(1) solid $grey-c;
+  padding: em($baseline*0.5);
+  border-radius: em(5);
+  &:hover {
+    border: em(1) solid $grey-9;
+  }
+  &:focus {
+    outline: none;
+    border: em(1) solid $ted-red;
+  }
+}
+
+select,
+input,
+input[type="text"],
+textarea {
+  width: 100% !important;
+  max-width: none !important;
+  @include box-sizing(border-box);
+}
+
+.button,
+button,
+input[type="submit"] {
+  display: inline-block;
+  border: 0;
+  background: $ted-red;
+  color: $white;
+  padding: em($baseline*0.5) em($baseline);
+  border-radius: em(5);
+  &:hover,
+  &:focus {
+    background: darken($ted-red, 10%);
+  }
+  &:active {
+    position: relative;
+    top: em(2);
+  }
+}
+
 // Navigation
 #primary-navigation {
   margin-left: em($baseline*-0.5);
@@ -104,16 +156,18 @@ a {
     margin: 0;
   }
   a {
-    background: $black;
-    border-bottom: 1px solid $white;
-    color: white;
+    background: $grey-e;
+    border-top: 1px solid $grey-c;
+    color: $black;
     display: block;
     padding: em($baseline*0.5);
     text-decoration: none;
     &:hover,
     &:focus,
     &:active {
+      border-top: 1px solid darken($ted-red, 10%);
       background: $ted-red;
+      color: $white;
     }
   }
 }
@@ -130,12 +184,13 @@ a {
 }
 
 // -- MAIN --
-.page-header {
-  border-top: 1px solid $grey-c;
-  border-bottom: 1px solid $grey-c;
+#page-header {
   padding: em($baseline) 0;
-  background: $grey-e;
-  color: $black;
+  background: $black;
+  color: $white;
+  h1 {
+    margin: 0;
+  }
 }
 
 // -- FOOTER --
@@ -143,6 +198,10 @@ a {
   padding-top: em($baseline);
   background: $black;
   color: $grey-d;
+}
+
+main {
+  margin-bottom: em($baseline);
 }
 
 // -- WRAPPERS --

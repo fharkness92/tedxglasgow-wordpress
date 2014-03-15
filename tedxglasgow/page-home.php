@@ -11,12 +11,23 @@
 ?>
 <?php Reflex_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-<header class="page-header">
-  <h2><?php the_title(); ?></h2>
-</header>
-<?php the_content(); ?>
-<?php comments_template( '', true ); ?>
-<?php endwhile; ?>
+<main>
+  <header id="page-header">
+    <div class="container">
+      <h1><?php the_title(); ?></h1> 
+    </div>
+  </header>
+  <section id="content" class="wrapper container">
+    <div class="grid">
+      <div class="primary">
+    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+
+  <?php the_content(); ?>
+  <?php comments_template( '', true ); ?>
+  <?php endwhile; ?>
+      </div>
+    </div>
+  </section>
+</main>
 
 <?php Reflex_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

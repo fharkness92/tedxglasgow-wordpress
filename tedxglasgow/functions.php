@@ -95,3 +95,21 @@
 			</article>
 		<?php endif;
 	}
+
+// WIDGETS
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+function reflex_widgets_init() {
+
+	register_sidebar( array(
+		'name' => 'Blog Sidebar',
+		'id' => 'blog_sidebar',
+		'before_widget' => '<section>',
+		'after_widget' => '</section>',
+		'before_title' => '<h4 class="sidebar-title">',
+		'after_title' => '</h4>',
+	) );
+}
+add_action( 'widgets_init', 'reflex_widgets_init' );

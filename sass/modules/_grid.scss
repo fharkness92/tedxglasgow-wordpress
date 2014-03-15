@@ -11,7 +11,6 @@
 .container {
   @include container;
   @include clearfix;
-  @include grid-padding;
   min-width: 10em;
   max-width: 40em;
 }
@@ -22,17 +21,68 @@
   @include width-full;
 }
 
-.unit-right {
-  @include unit(right);
-}
-
 .grid-unit {
   @include grid-padding;
 }
 
-// Multi-column Styles
+// Columns
+.unit-1-2,
+.unit-1-3,
+.unit-1-4,
+.primary,
+.sidebar {
+  @include unit;
+  width: 100%;
+}
+
+.reverse {
+  @include unit(right);
+}
+
+@media only screen and (min-width: 30em) {
+  .container {
+    @include grid-padding(1);
+  }
+}
 @media only screen and (min-width: 40em) {
   .grid {
     @include grid;
+    @include clearfix;
+  }
+
+  .unit-1-2,
+  .unit-1-3,
+  .unit-1-4,
+  .primary,
+  .sidebar {
+    @include grid-padding;
+  }
+
+  .unit-1-2,
+  .unit-1-4 {
+    @include width-1-2;
+  }
+
+  .unit-1-3 {
+    @include width-1-3;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .container {
+    @include grid-padding(2);
+  }
+
+  .unit-1-3 {
+    @include width-1-3;
+  }
+  .unit-1-4 {
+    @include width-1-4;
+  }
+  .primary {
+    @include width-golden-large;
+  }
+  .sidebar {
+    @include width-golden-small;
   }
 }
